@@ -1,27 +1,27 @@
 package com.example.foodrecipe;
 
 public class Menu {
-    private int title;
-    private String img;
+    private String title;
+    private int img;
 
-    public Menu(String data_, int title, String img) {
+    public Menu(String title, int img) {
         this.title = title;
         this.img = img;
     }
 
-    public int getTitle() {
+    public String getTitle() {
         return title;
     }
 
-    public void setTitle(int title) {
+    public void setTitle(String title) {
         this.title = title;
     }
 
-    public String getImg() {
+    public int getImg() {
         return img;
     }
 
-    public void setImg(String img) {
+    public void setImg(int img) {
         this.img = img;
     }
 }

@@ -18,7 +18,6 @@ public class MenuAdapter extends BaseAdapter{
     public final Context mContext;
     public final Menu[] menus;
 
-
     public MenuAdapter(Context mContext, Menu[] menus) {
         this.mContext = mContext;
         this.menus = menus;
@@ -40,9 +39,29 @@ public class MenuAdapter extends BaseAdapter{
     }
 
     @Override
-    public View getView(int position, View view, ViewGroup viewGroup) {
-        TextView dummyTextView = new TextView(mContext);
+    public View getView(int position, View convertView, ViewGroup viewGroup) {
+        /*TextView dummyTextView = new TextView(mContext);
         dummyTextView.setText(String.valueOf(position));
-        return dummyTextView;
+        return dummyTextView;*/
+
+        // 1
+        final Menu menu = menus[position];
+
+        // 2
+        if (convertView == null) {
+            final LayoutInflater layoutInflater = LayoutInflater.from(mContext);
+            convertView = layoutInflater.inflate(R.layout.category_list, null);
+        }
+
+        // 3
+        final ImageView imageView = (ImageView)convertView.findViewById(R.id.img);
+        final TextView nameTextView = (TextView)convertView.findViewById(R.id.title);
+        //final ImageView imageViewShadow = (ImageView)convertView.findViewById(R.id.shadow_bottom);
+
+        // 4
+       imageView.setImageResource(menu.getImg());
+        nameTextView.setText(menu.getTitle());
+
+        return convertView;
     }
 }
